@@ -33,14 +33,14 @@ Druguser = filter(FinalData, DrugUser =="yes")
 
 A new  preventative vaccine (covid21) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups consisting of Males, Females, just the drug users, and just those in the LGBTQ community. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Part of the information you need to compute is the so-called effectiveness of the drug for each subgroup of people. Include a 95% confidence interval of the effectiveness for each different subgroup. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-$H_0$:There is no difference in  covid-19 vaccine effectiveness amongst difference subgroups(males,females,drug users, LGBTQ)
+$H_0$:There is no difference in  covid-19 vaccine effectiveness among different subgroups(males,females,drug users, LGBTQ)
 
-$H_A$:There is a difference in  covid-19vaccine effectiveness amongst different subgoups(males,females,Drug users,LGBTQ)
+$H_A$:There is a difference in  covid-19 vaccine effectiveness among different subgroups(males,females,Drug users,LGBTQ)
 
 
 # Males
 
-### Barplot
+
 
 ```{r}
 dd2 <- guy %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -101,7 +101,7 @@ guyfish
 
 
 
-The information to play close attention to among all of these results is the output of the Fisher's Exact test. The p-value displayed above is extremely small at 6e-04. This is an awfully small number. seeing this number means that these results are not likely to occur by chance.
+The information to play close attention to among all of these results is the output of the Fisher's Exact test. The p-value displayed above is extremely small at 0.0005801. This is an awfully small number. seeing this number means that these results are not likely to occur by chance.
 
 
 
@@ -276,7 +276,7 @@ Druguserfish
 
 
 
-The information to play close attention to among all of these results is the output of the Fisher's Exact test. The p-value displayed above is extremely small at .003 This is an awfully small number. This number means that these results are not likely to occur by chance.
+The information to play close attention to among all of these results is the output of the Fisher's Exact test. The p-value displayed above is extremely small at .002 This is an awfully small number. This number means that these results are not likely to occur by chance.
 
 
 
@@ -389,7 +389,14 @@ The odds ratio is approximately how effective the vaccine is. The odds ratio for
 
 # Conclusions and recommendations
 
-We reject the Null Hypothesis because every sub group had a different P value and thus a different rate of effectiveness in all subgroups after reaceiving the vaccine.
+We reject the Null Hypothesis because is a difference in  Covid-19 vaccine effectiveness among different subgroups(males,females,Drug users,LGBTQ).Vaccine effectiveness veries bewteen sub groups and each subgroup had a different P value, thus there different rate of effectiveness in all subgroups after receiving the vaccine.
 
-Males vaccinated had a 2:1
+Males vaccinated had  2:1 of contracting Covid-19 after vaccination,thus it is ineffective for males with a p value of 0.0005801 which is to low. This indicates strong evidence against the null hypothesis, so we reject the null hypothesis. In conclusion males should not take the vaccine because it is ineffective at protecting males from the Covid-19
+ 
+Females were 1:2 odds of contracting Covid-19 after vaccination  with a P value of  <2e-16(0.0000000000000002) which is too low ,this indicates strong evidence against the null hypothesis, so we reject the null hypothesis. IN conclusion woman should take the vaccine as it is effective in protecting woman from Covid-19
 
+Drug users had 1:2 odds of contracting Covid-19 after vaccination with a P value of 0.002 which is to low.This indicates strong evidence against the null hypothesis, so we reject the null hypothesis. In conclusion Drug users should take the vaccine as it is effective in protecting Drug users from Covid-19.
+
+LGBTQ had a 5:3 odds of contracting Covid-19 after vaccination with a p value of 0.00006 which is too low. This indicates strong evidence against the null hypothesis, so you reject the null hypothesis. In conclusion LGBTQ should Not get the vaccine as it is ineffectice in protecting LGBTQ from Covid-19.
+
+To reiterate it is clear that there is difference in Covid-19 vaccine effectiveness between different subgroups thus we Reject the null hypothesis. The vaccine is effective at fighting Covid-19 for woman and drug users but ineffective for Men and LGBTQ.
