@@ -40,7 +40,7 @@ $H_A$:There is a difference in  covid-19 vaccine effectiveness among different s
 
 # Males
 
-
+## Barplot
 
 ```{r}
 dd2 <- guy %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -115,6 +115,9 @@ effect <- guyfish$p.value/(guyfish$p.value +1)
 effectivenessguy = guyfish$estimate/(guyfish$estimate +1)*100
 print(effectivenessguy)
 ```
+## effectivness for guys is `r round(effectivenessguy,0)`
+
+
 
 ```{r}
 low=(guyfish$conf.int[1]/(guyfish$conf.int[1] +1))*100
@@ -128,6 +131,7 @@ The odds ratio is approximately how effective the vaccine is. The odds ratio for
 
 # Females
 
+## Barplot
 
 
 ```{r}
@@ -203,6 +207,8 @@ effect <- galfish$p.value/(galfish$p.value +1)
 effectivenessgal = galfish$estimate/(galfish$estimate +1)*100
 print(effectivenessgal)
 ```
+## effectivness for gals is `r round(effectivenessgal,0)`
+
 
 ```{r}
 low=(galfish$conf.int[1]/(galfish$conf.int[1] +1))*100
@@ -215,6 +221,8 @@ Above is the effectiveness for the covid-19 vaccine for woman(females). If the e
 The odds ratio is approximately how effective the vaccine is. The odds ratio for the woman(females) can be seen above as 67. The effectiveness confidence interval for the females is 55.09 to 75.05
 
 # Drug Users
+
+## Barplot
 
 
 ```{r}
@@ -290,6 +298,8 @@ effect <- Druguserfish$p.value/(galfish$p.value +1)
 effectivenessDruguser = Druguserfish$estimate/(Druguserfish$estimate +1)*100
 print(effectivenessDruguser)
 ```
+## effectivness for Drug users is `r round(effectivenessDruguser,0)`
+
 
 ```{r}
 low=(Druguserfish$conf.int[1]/(Druguserfish$conf.int[1] +1))*100
@@ -302,6 +312,8 @@ Above is the effectiveness for the covid-19 vaccine for drug users. If the effec
 The odds ratio is approximately how effective the vaccine is. The odds ratio for the drug users can be seen above as 65. The effectiveness confidence interval for the Drug users is 55.09 to 75.05
 
 # LGBTQ
+
+##Barplot
 
 ```{r}
 dd2 <- gay %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -376,6 +388,8 @@ effect <- gayfish$p.value/(gayfish$p.value +1)
 effectivenessgay = gayfish$estimate/(gayfish$estimate +1)*100
 print(effectivenessgay)
 ```
+
+## effectivness for LGBTQ is `r round(effectivenessgay,0)`
 
 ```{r}
 low=(gayfish$conf.int[1]/(gayfish$conf.int[1] +1))*100

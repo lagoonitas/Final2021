@@ -11,7 +11,7 @@
 
 <meta name="author" content="Abel Jacobo Perez" />
 
-<meta name="date" content="2021-11-21" />
+<meta name="date" content="2021-11-24" />
 
 <title>Covid19 vaccine study Fall2021</title>
 
@@ -167,7 +167,7 @@ pre code {
 
 <h1 class="title toc-ignore">Covid19 vaccine study Fall2021</h1>
 <h4 class="author">Abel Jacobo Perez</h4>
-<h4 class="date">2021-11-21</h4>
+<h4 class="date">2021-11-24</h4>
 
 </div>
 
@@ -176,23 +176,36 @@ pre code {
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#males">Males</a>
 <ul>
+<li><a href="#barplot">Barplot</a>
+<ul>
 <li><a href="#numerical-results">Numerical results</a></li>
 <li><a href="#inferential-results">Inferential results</a></li>
 </ul></li>
+<li><a href="#effectivness-for-guys-is-40">effectivness for guys is 40</a></li>
+</ul></li>
 <li><a href="#females">Females</a>
+<ul>
+<li><a href="#barplot-1">Barplot</a>
 <ul>
 <li><a href="#numerical-results-1">Numerical results</a></li>
 <li><a href="#inferential-results-1">Inferential results</a></li>
 </ul></li>
+<li><a href="#effectivness-for-gals-is-67">effectivness for gals is 67</a></li>
+</ul></li>
 <li><a href="#drug-users">Drug Users</a>
+<ul>
+<li><a href="#barplot-2">Barplot</a>
 <ul>
 <li><a href="#numerical-results-2">Numerical results</a></li>
 <li><a href="#inferential-results-2">Inferential results</a></li>
+</ul></li>
+<li><a href="#effectivness-for-drug-users-is-65">effectivness for Drug users is 65</a></li>
 </ul></li>
 <li><a href="#lgbtq">LGBTQ</a>
 <ul>
 <li><a href="#numerical-results-3">Numerical results</a></li>
 <li><a href="#inferential-results-3">Inferential results</a></li>
+<li><a href="#effectivness-for-lgbtq-is-29">effectivness for LGBTQ is 29</a></li>
 </ul></li>
 <li><a href="#conclusions-and-recommendations">Conclusions and recommendations</a></li>
 </ul>
@@ -206,6 +219,8 @@ pre code {
 </div>
 <div id="males" class="section level1">
 <h1>Males</h1>
+<div id="barplot" class="section level2">
+<h2>Barplot</h2>
 <pre class="r"><code>dd2 &lt;- guy %&gt;% group_by(infected,treatment) %&gt;% summarize(count=n()) %&gt;% mutate(prcnt=count/sum(count))</code></pre>
 <pre><code>## `summarise()` has grouped output by &#39;infected&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># the group_by followed by summarize(count=n())
@@ -292,6 +307,10 @@ effectivenessguy = guyfish$estimate/(guyfish$estimate +1)*100
 print(effectivenessguy)</code></pre>
 <pre><code>## odds ratio 
 ##   40.42246</code></pre>
+</div>
+</div>
+<div id="effectivness-for-guys-is-40" class="section level2">
+<h2>effectivness for guys is 40</h2>
 <pre class="r"><code>low=(guyfish$conf.int[1]/(guyfish$conf.int[1] +1))*100
 hi=(guyfish$conf.int[2]/(guyfish$conf.int[2] +1))*100
 options(digits=2)</code></pre>
@@ -301,6 +320,8 @@ options(digits=2)</code></pre>
 </div>
 <div id="females" class="section level1">
 <h1>Females</h1>
+<div id="barplot-1" class="section level2">
+<h2>Barplot</h2>
 <pre class="r"><code>dd2 &lt;- gal %&gt;% group_by(infected,treatment) %&gt;% summarize(count=n()) %&gt;% mutate(prcnt=count/sum(count))</code></pre>
 <pre><code>## `summarise()` has grouped output by &#39;infected&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># the group_by followed by summarize(count=n())
@@ -387,6 +408,10 @@ effectivenessgal = galfish$estimate/(galfish$estimate +1)*100
 print(effectivenessgal)</code></pre>
 <pre><code>## odds ratio 
 ##         67</code></pre>
+</div>
+</div>
+<div id="effectivness-for-gals-is-67" class="section level2">
+<h2>effectivness for gals is 67</h2>
 <pre class="r"><code>low=(galfish$conf.int[1]/(galfish$conf.int[1] +1))*100
 hi=(galfish$conf.int[2]/(galfish$conf.int[2] +1))*100
 options(digits=2)</code></pre>
@@ -396,6 +421,8 @@ options(digits=2)</code></pre>
 </div>
 <div id="drug-users" class="section level1">
 <h1>Drug Users</h1>
+<div id="barplot-2" class="section level2">
+<h2>Barplot</h2>
 <pre class="r"><code>dd2 &lt;- Druguser %&gt;% group_by(infected,treatment) %&gt;% summarize(count=n()) %&gt;% mutate(prcnt=count/sum(count))</code></pre>
 <pre><code>## `summarise()` has grouped output by &#39;infected&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># the group_by followed by summarize(count=n())
@@ -482,6 +509,10 @@ effectivenessDruguser = Druguserfish$estimate/(Druguserfish$estimate +1)*100
 print(effectivenessDruguser)</code></pre>
 <pre><code>## odds ratio 
 ##         65</code></pre>
+</div>
+</div>
+<div id="effectivness-for-drug-users-is-65" class="section level2">
+<h2>effectivness for Drug users is 65</h2>
 <pre class="r"><code>low=(Druguserfish$conf.int[1]/(Druguserfish$conf.int[1] +1))*100
 hi=(Druguserfish$conf.int[2]/(Druguserfish$conf.int[2] +1))*100
 options(digits=2)</code></pre>
@@ -491,6 +522,7 @@ options(digits=2)</code></pre>
 </div>
 <div id="lgbtq" class="section level1">
 <h1>LGBTQ</h1>
+<p>##Barplot</p>
 <pre class="r"><code>dd2 &lt;- gay %&gt;% group_by(infected,treatment) %&gt;% summarize(count=n()) %&gt;% mutate(prcnt=count/sum(count))</code></pre>
 <pre><code>## `summarise()` has grouped output by &#39;infected&#39;. You can override using the `.groups` argument.</code></pre>
 <pre class="r"><code># the group_by followed by summarize(count=n())
@@ -577,6 +609,9 @@ effectivenessgay = gayfish$estimate/(gayfish$estimate +1)*100
 print(effectivenessgay)</code></pre>
 <pre><code>## odds ratio 
 ##         29</code></pre>
+</div>
+<div id="effectivness-for-lgbtq-is-29" class="section level2">
+<h2>effectivness for LGBTQ is 29</h2>
 <pre class="r"><code>low=(gayfish$conf.int[1]/(gayfish$conf.int[1] +1))*100
 hi=(gayfish$conf.int[2]/(gayfish$conf.int[2] +1))*100
 options(digits=2)</code></pre>
